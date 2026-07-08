@@ -130,11 +130,11 @@ function displayBestTime() {
 function resetGame() {
     clearInterval(timerInterval);
     seconds = 0;
-    moves = 0;
+    moves = 7;
     matchedCount = 0;
     flippedCards = [];
     gameStarted = false;
     timerText.innerText = "00:00";
-    movesText.innerText = "0";
+    movesText.innerText = "7";
     initGame();
 }
