@@ -2,7 +2,7 @@
 const emojis = ['⚽', '🚗', '🎮', '🍕', '🚀', '💎', '💡', '🦁', '⚽', '🚗', '🎮', '🍕', '🚀', '💎', '💡', '🦁'];
 let flippedCards = [];
 let matchedCount = 0;
-let moves = 0;
+let moves = 7;
 let timerInterval = null;
 let seconds = 0;
 let gameStarted = false;
@@ -56,9 +56,18 @@ function flipCard() {
     flippedCards.push(this);
 
     if (flippedCards.length === 2) {
-        moves++;
-        movesText.innerText = moves;
-        checkMatch();
+       moves--; // بنقص محاولة لأن اللاعب غلط أو جرب
+movesText.innerText = moves;
+
+// شرط الخسارة: إذا خلصت المحاولات وما فتح كل الكروت
+if (moves === 0 && matchedCount !== emojis.length) {
+    clearInterval(timerInterval);
+    setTimeout(() => {
+        alert("💀 جيم أوفر! خلصت محاولاتك، حاول مرة ثانية!");
+        resetGame(); // إعادة تصفير اللعبة تلقائياً
+    }, 500);
+    return;
+}
     }
 }
 
