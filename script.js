@@ -76,7 +76,7 @@ function checkMatch() {
         if (matchedCount === emojis.length) {
             clearInterval(timerInterval);
             saveBestTime();
-            setTimeout(() => alert(`🎉 كفوو بطل! فزت بـ ${moves} محاولة و بوقت ${formatTime(seconds)}`), 500);
+            setTimeout(() => alert(`كفوووو لعييببـ ${moves} محاولة و بوقت ${formatTime(seconds)}`), 500);
         }
     } else {
         // ما تطابقوا، نرجع نغطيهم بعد ثانية
